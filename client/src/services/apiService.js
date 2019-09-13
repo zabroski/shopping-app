@@ -52,3 +52,45 @@ export const getProfile = async ()=> {
 
 
 
+export const createProduct = async (data) => {
+    try {
+        const response = await apiClient.post('/app/product', data)
+        const { user } = response.data
+        return user
+    } catch(e) {
+        throw e
+    }
+}
+
+export const getProducts = async (id) => {
+    try {
+        const response = await apiClient.get(`/app/product/users/${id}`)
+        const {user} = response.data
+        console.log(user)
+    } catch (e){
+        throw e
+    }
+}
+
+
+//Update
+
+export const updateProduct = async (productId, data ) => {
+    try {
+        let userId = localStorage.getItem('userId')
+        const response = await apiClient.put(`/app/product/user/${userId}/update/${productId}`, data)
+        return response
+    } catch (e) {
+        throw e
+    }
+}
+
+
+export const deleteProduct = async (productId, data ) => {
+    try {
+        const response = await apiClient.delete(`/app/router/${productId}/delete`, data)
+
+    } catch (e){
+        throw e
+    }
+}

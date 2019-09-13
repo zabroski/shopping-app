@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 //Components
 import Home from './components/Home'
 import Dashboard from './components/Dashboard'
+import  CreateProduct  from './components/CreateProduct'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import  ProtectedRoute from './components/ProtectRoute'
@@ -89,7 +90,9 @@ signUpUser = async (credentials) => {
           <div><Link to="/">Home</Link></div>
           {
             isSignedIn &&
-            <div><Link to="/dashboard">Dashboard</Link></div>
+            
+            <div className=""><Link className="" to="/product/create">Create product</Link>  </div>
+              
 
           }
           {
@@ -111,13 +114,13 @@ signUpUser = async (credentials) => {
   
         <main>
           <Route exact path="/" component={Home} />
-          <ProtectedRoute path="/dashboard" 
+          <ProtectedRoute path="/product/create" 
           user={user}
-          component={Dashboard} />
+          component={CreateProduct} />
           <Route 
-          path="/login"
-           render={(props) => <Login  {...props} handleLogin={this.loginUser} isSignedIn={isSignedIn}/>} />
-            <Route 
+            path="/login"
+            render={(props) => <Login  {...props} handleLogin={this.loginUser} isSignedIn={isSignedIn}/>} />
+          <Route 
             path='/signup' 
             render = {(props) => <Signup {...props} handleSignUp={this.signUpUser} isSignedIn={isSignedIn} />}
              />
