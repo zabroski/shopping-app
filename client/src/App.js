@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 //Components
 import Home from './components/Home'
-import Dashboard from './components/Dashboard'
+// import Dashboard from './components/Dashboard'
 import  CreateProduct  from './components/CreateProduct'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -92,8 +92,6 @@ signUpUser = async (credentials) => {
             isSignedIn &&
             
             <div className=""><Link className="" to="/product/create">Create product</Link>  </div>
-              
-
           }
           {
             !isSignedIn ? (
@@ -103,6 +101,7 @@ signUpUser = async (credentials) => {
             )
           
           }
+          
 
           {!isSignedIn ? (
               <div><Link to="/signup">Sign up</Link></div>
@@ -111,6 +110,10 @@ signUpUser = async (credentials) => {
             )
           }
         </nav>
+
+       
+       
+      
   
         <main>
           <Route exact path="/" component={Home} />

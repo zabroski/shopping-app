@@ -1,7 +1,7 @@
-import React from 'react'
-import Axios from 'axios';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createProduct } from '../../services/apiService';
+// import ProductList from '../ProductList';
 
 
 class CreateProduct extends React.Component {
@@ -9,6 +9,7 @@ class CreateProduct extends React.Component {
         super(props)
         this.state = {
             created: false,
+            name: ''
         }
     }
 
@@ -17,33 +18,34 @@ class CreateProduct extends React.Component {
         const { name, value } = currentElement
         const newState = {}
         newState[name] = value
-        this.setState(newState)
+        this.setState(newState);
+        console.log(value);
     }
 
     handleSubmit = async (e) => {
         e.preventDefault()
-        const { name, type,price, description } = this.state 
-        let newProduct = { name, type, price, description };
+        const { name, type, price, description, image  } = this.state 
+        let newProduct = { name, type, price, description, image };
 
         let data = createProduct(newProduct)
         this.setState({ created: true})
     }
 
     render() {
-        if (this.state.created){return <Redirect to="/dashbord"> </Redirect>}
+        if (this.state.created){return <Redirect to="/"> </Redirect>}
         return (
             <div>
                 <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-                    <label for = "Name">Name</label>
-                    <input name="Name" type="text"></input>
+                    <label for = "name">Name</label>
+                    <input name="name" type="text"></input>
 
                     <label for = "type">Type</label>
-                    <input name="Type" type="text"></input>
+                    <input name="type" type="text"></input>
 
                     <label for = "price">Price</label>
                     <input name="price" type="number"></input>
 
-                    <label for = "description">description</label>
+                    <label for = "description">Description</label>
                     <input name="description" type="text"></input>
 
                     <label for = "image">Image</label>
@@ -51,6 +53,7 @@ class CreateProduct extends React.Component {
                     <div className="submit"><input type = "submit" /></div> 
                     
                 </form>
+
             </div>
         )
     }

@@ -51,9 +51,11 @@ export const getProfile = async ()=> {
 }
 
 
+//----------------------CRUD START HERE----------------------
 
 export const createProduct = async (data) => {
     try {
+        console.log("Console log to create product ", data);
         const response = await apiClient.post('/app/product', data)
         const { user } = response.data
         return user
@@ -62,11 +64,12 @@ export const createProduct = async (data) => {
     }
 }
 
-export const getProducts = async (id) => {
+
+
+export const getProducts = async () => {
     try {
-        const response = await apiClient.get(`/app/product/users/${id}`)
-        const {user} = response.data
-        console.log(user)
+        const response = await apiClient.get(`/app/product`)
+        return response.data
     } catch (e){
         throw e
     }

@@ -1,49 +1,55 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import { getProducts } from '../../services/apiService'
+import './ProductList.css'
 
 
 class ProductList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            data: [],
+            products:[]
         }
     }
 
-    async componentDidMount () {
-        await this.getProduct()
+    async componentDidMount() {
+        await this.getProducts()
 
     }
 
-    getProduct = async () => {
-        const data = await getProducts()
-        this.setState({ data})
+    getProducts = async () => {
+        const products = await getProducts()
+        this.setState({ products: products })
     }
 
     renderProduct = () => {
-        if(this.state.data){
-            return this.state.data.map(user =>{  
+            return this.state.products.map(product => {
                 return (
-                    <li key={user.id}><Link to={{
-                        pathname:`/dashboard/product/${user.id}`,
-                        state:{products:user.products}
-                }}>{user.name}</Link></li>
+                    <h2 key={product.id}><Link to={{
+                        pathname: `/dashboard/product/${product.id}`,
+                        state: { products: product.products }
+                    }}>{product.name} 
+                        {product.id} 
+                        {product.description} 
+                        {product.stype}
+                        {product.price} 
+                        {product.description}
+                        {product.image}
+                    </Link></h2>
                 )
             })
-        }
     }
-    
+
 
     render() {
-        return(
+        return (
             <div>
-                <h1>Shopping time</h1>
-                <div>
+                {/* <h1>Shopping time</h1> */}
+                <div className="people-list">
                     {this.renderProduct()}
                 </div>
-               
+
             </div>
         )
     }

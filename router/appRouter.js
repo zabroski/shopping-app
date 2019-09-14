@@ -4,14 +4,20 @@ const appRouter = express.Router()
 const { passport } = require('../auth/auth');
 const { Product } = require('../models');
 
+appRouter.get('/product', async (req, res) => {
+  res.send(await Product.findAll());
+})
 
 
+appRouter.get('/product/:id', async (req, res) => {
+  let product = await Product.findByPk(req.params.id)
+  res.send(product) 
+})
 
-// get one product
 
 appRouter.get('/product/:id', async (req, res) => {
     let product = await Product.findByPk(req.params.id)
-    res.send(product) //id, name, type, price as a product
+    res.send(product)
 })
 
 appRouter.post('/product', async (req, res) => {
@@ -26,7 +32,6 @@ appRouter.post('/product', async (req, res) => {
     
   })
 
-  // PUT(edit) one routine
   appRouter.put('/product/user/:user_id/update/:product_id', async (req, res) => {
     let product = await Product.findByPk(req.params.product_id)
 
@@ -35,15 +40,11 @@ appRouter.post('/product', async (req, res) => {
   })
   
 
-
- // DELETE routine
  appRouter.delete('/product/:id/delete', async (req, res) => {
     try {
       const product = await Product.findByPk(req.params.id);
       if (product) {
           await product.destroy();
-
-          console.log("This is my routine: ", product);
           res.send('ok')
       } else{
           let err = new Error('PRODUCT Not Found')
@@ -54,7 +55,7 @@ appRouter.post('/product', async (req, res) => {
   }
   });
 
-appRouter.get('/profile', passport.authenticate('jwt', { session: false}),
+  appRouter.get('/profile', passport.authenticate('jwt', { session: false}),
 async(req, res) => {
     console.log(req.user)
     res.json({ user: req.user, message: 'authenticated'})
