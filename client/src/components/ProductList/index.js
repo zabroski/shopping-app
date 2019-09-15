@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { getProducts } from '../../services/apiService'
-import './ProductList.css'
+import './ProductList.css';
+
 
 
 class ProductList extends React.Component {
@@ -23,20 +24,21 @@ class ProductList extends React.Component {
         this.setState({ products: products })
     }
 
+
     renderProduct = () => {
             return this.state.products.map(product => {
                 return (
-                    <h2 key={product.id}><Link to={{
-                        pathname: `/dashboard/product/${product.id}`,
-                        state: { products: product.products }
-                    }}>{product.name} 
-                        {product.id} 
-                        {product.description} 
-                        {product.stype}
-                        {product.price} 
-                        {product.description}
-                        {product.image}
-                    </Link></h2>
+                    <div className="product-item" key={product.id}>
+                        <Link to={{
+                            pathname: `/dashboard/product/${product.id}`,
+                            state: { products: product.products }
+                        }}>
+                            <h2>{product.name}</h2> 
+                            <p>{product.description}</p>
+                            <span>{product.price}</span>
+                            <div>{product.image}</div>
+                        </Link>
+                    </div>
                 )
             })
     }
@@ -46,7 +48,7 @@ class ProductList extends React.Component {
         return (
             <div>
                 {/* <h1>Shopping time</h1> */}
-                <div className="people-list">
+                <div className="product-list">
                     {this.renderProduct()}
                 </div>
 

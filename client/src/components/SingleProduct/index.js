@@ -13,14 +13,14 @@ const renderProducts = () => {
         return props.location.state.products.map(product => {
             return (
                 <div className="single-routine">
-                <div key={routine.id}>{routine.startTime} - {routine.endTime} : {routine.description}
+                <div key={product.id}>{product.name}{product.description}{product.price}{product.image} 
                 </div>
                 <div>
-                    <button className="update-button" onClick={()=> props.history.push('/dashboard/routine/:routine_id/update', {routineId: routine.id})}>Update</button>
+                    <button className="update-button" onClick={()=> props.history.push('/dashboard/product/:product_id/update', {productId: product.id})}>Update</button>
                 </div>
                 <br />
                 <div>
-                    <button className="delete-button" onClick={() => handleDelete(routine.id)}>Delete</ button>
+                    <button className="delete-button" onClick={() => handleDelete(product.id)}>Delete</ button>
                 </div>
                 </div>
 
@@ -31,7 +31,7 @@ const renderProducts = () => {
 
     return (
         <div>
-            {renderProducts}
+            {renderProducts()}
         </div>
     )
 }

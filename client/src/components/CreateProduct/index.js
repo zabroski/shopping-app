@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createProduct } from '../../services/apiService';
+import './CreateProduct.css';
 // import ProductList from '../ProductList';
 
 
@@ -32,9 +33,10 @@ class CreateProduct extends React.Component {
     }
 
     render() {
+        
         if (this.state.created){return <Redirect to="/"> </Redirect>}
         return (
-            <div>
+            <div className="products">
                 <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                     <label for = "name">Name</label>
                     <input name="name" type="text"></input>
@@ -50,10 +52,9 @@ class CreateProduct extends React.Component {
 
                     <label for = "image">Image</label>
                     <input name="image" type="url"></input>
-                    <div className="submit"><input type = "submit" /></div> 
-                    
+                    <div className="submit"><input type = "submit" /></div>   
                 </form>
-
+                
             </div>
         )
     }
