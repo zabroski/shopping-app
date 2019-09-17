@@ -1,6 +1,6 @@
 import axios from 'axios'
-const BASE_URL = process.env.API_URL || 'http://localhost:8001'
-//https://z-shopping-time.herokuapp.com
+const BASE_URL = 'https://z-shopping-time.herokuapp.com/'  //process.env.API_URL || 'http://localhost:8001'
+
 
 const JWT_TOKEN = localStorage.getItem('token')
 

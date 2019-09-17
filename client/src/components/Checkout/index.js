@@ -29,16 +29,14 @@ function Checkout (props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/*Object.keys(products).map((productId) => {
-                        let productInfo = products[productId];
-                        
-                        return (<tr>
-                                    <td>{productInfo.product.name}</td>
-                                    <td>{productInfo.product.price}zc</td>
-                                    <td>{productInfo.qt}</td>
-                                    <td>{productInfo.qt * productInfo.product.price}zc</td>
-                                </tr>);
-                    })*/}
+                  
+
+
+
+
+
+
+                  
                     <tr>
                         <td></td>
                         <td></td>

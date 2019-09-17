@@ -30,7 +30,7 @@ class MyStore extends React.Component {
     render() {
         return (
             <div>
-                <h2>My Store</h2>
+                {/* <h2>My Store</h2> */}
                 {this.state.myStoreProducts.map((product, id) =>{
                     return(
 
