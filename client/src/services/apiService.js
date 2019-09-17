@@ -11,6 +11,7 @@ const apiClient = axios.create({
     
     }
 })
+console.log(BASE_URL)
 
 export const login = async (data) => {
     try {
