@@ -4,10 +4,14 @@ const UserModel = require('./user')
 const ProductModel = require('./product')
 
 
-const db = new Sequelize({
-  database: "shopping-auth-db",
+// const db = new Sequelize({
+//   database: "shopping-auth-db",
+//   dialect: 'postgres'
+// })
+
+const db = new Sequelize(process.env.DATABASE_URL , {
   dialect: 'postgres'
-})
+});
 
 // if (process.env.NODE_ENV === 'production') {
 //   // If the node environment is production, connect to a remote PSQL database
