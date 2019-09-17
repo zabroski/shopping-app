@@ -10,8 +10,8 @@ function Checkout (props) {
     let total = 0;
 
     for(let k in products){
-        let productInfo = products[k];
-        total += productInfo.qt * productInfo.product.price;
+        // let productInfo = products[k];
+        // total += productInfo.qt * productInfo.product.price;
     }
 
     return (
@@ -29,7 +29,7 @@ function Checkout (props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.keys(products).map((productId) => {
+                    {/*Object.keys(products).map((productId) => {
                         let productInfo = products[productId];
                         
                         return (<tr>
@@ -38,7 +38,7 @@ function Checkout (props) {
                                     <td>{productInfo.qt}</td>
                                     <td>{productInfo.qt * productInfo.product.price}zc</td>
                                 </tr>);
-                    })}
+                    })*/}
                     <tr>
                         <td></td>
                         <td></td>
@@ -53,9 +53,6 @@ function Checkout (props) {
             {/* <Link to="/thankyou"></Link> */}
             </div>
             </div>
-
-
-            
         </div>
     )
 }
