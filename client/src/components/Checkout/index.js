@@ -31,7 +31,6 @@ function Checkout (props) {
                 <tbody>
                   
 
-
                   
                     <tr>
                         <td></td>
