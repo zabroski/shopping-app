@@ -5,7 +5,7 @@ const ProductModel = require('./product')
 
 
 const db = new Sequelize({
-  database: "daf9fimq95ftaj",
+  database: "shopping-auth-db",
   dialect: 'postgres'
 })
 
