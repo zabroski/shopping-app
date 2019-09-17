@@ -1,0 +1,18 @@
+.update-product input {
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 7px;
+    padding: 5px;
+    display: block;
+    margin-left: 40%;
+    outline: none;
+    width: 20%
+}
+
+.update-product label {
+    margin-left: 40%;
+}
+
+form {
+    margin-right: 5%;
+}

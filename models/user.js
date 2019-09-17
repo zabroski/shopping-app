@@ -12,6 +12,9 @@ module.exports = (db, Sequelize) => {
         password: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        coins: {
+            type: Sequelize.INTEGER
         }
     })
 } 

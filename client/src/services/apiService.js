@@ -14,9 +14,12 @@ const apiClient = axios.create({
 export const login = async (data) => {
     try {
         const response = await apiClient.post('/auth/login', data)
-        const { token, user } = response.data
+        const { token, user } = response.data;
+        console.log(user);
 
-        localStorage.setItem('token', token)
+        localStorage.setItem('token', token);
+        localStorage.setItem('userId', user.id);
+
         return user
 
     } catch(e) {
@@ -51,10 +54,12 @@ export const getProfile = async ()=> {
 }
 
 
+//----------------------CRUD START HERE----------------------
 
 export const createProduct = async (data) => {
     try {
-        const response = await apiClient.post('/app/product', data)
+        let userId = localStorage.getItem('userId')
+        const response = await apiClient.post(`/app/${userId}/product`, data)
         const { user } = response.data
         return user
     } catch(e) {
@@ -62,16 +67,26 @@ export const createProduct = async (data) => {
     }
 }
 
-export const getProducts = async (id) => {
+
+export const getProducts = async () => {
     try {
-        const response = await apiClient.get(`/app/product/users/${id}`)
-        const {user} = response.data
-        console.log(user)
+        const response = await apiClient.get(`/app/product`)
+        return response.data
     } catch (e){
         throw e
     }
 }
 
+
+export const getMyStoreProducts = async () => {
+    try {
+        let userId = localStorage.getItem('userId')
+        const response = await apiClient.get(`/app/${userId}/my-product`)
+        return response.data
+    } catch (e){
+        throw e
+    }
+}
 
 //Update
 
@@ -86,9 +101,20 @@ export const updateProduct = async (productId, data ) => {
 }
 
 
-export const deleteProduct = async (productId, data ) => {
+export const getProduct = async (productId ) => {
     try {
-        const response = await apiClient.delete(`/app/router/${productId}/delete`, data)
+        const response = await apiClient.get(`/app/product/${productId}`)
+        return response
+    } catch (e) {
+        throw e
+    }
+}
+
+
+export const deleteProduct = async (productId) => {
+    try {
+        const response = await apiClient.delete(`/app/product/${productId}/delete`)
+        return response
 
     } catch (e){
         throw e

@@ -1,10 +1,11 @@
 import React from 'react'
 import SignUpForm from '../SignUpForm'
+import './Signup.css'
 
 
 function Signup(props) {
     return(
-        <div>
+        <div className="signup">
             <SignUpForm {...props} />
         </div>
     )

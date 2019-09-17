@@ -4,6 +4,6 @@ module.exports = (db, Sequelize) => {
         type: Sequelize.STRING,
         price: Sequelize.INTEGER,
         image: Sequelize.STRING,
-        description: Sequelize.STRING
+        description: Sequelize.TEXT
     })
 } 

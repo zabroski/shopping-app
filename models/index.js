@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt')
 const UserModel = require('./user')
 const ProductModel = require('./product')
 
-
 // const db = new Sequelize({
 //   database: "shopping-auth-db",
 //   dialect: 'postgres'
@@ -31,10 +30,14 @@ User.beforeCreate(async (user, options) => {
         user.password,
         Number(process.env.SALT_ROUNDS)
     )
+    user.coins = 1000;
     user.password = hashedPassword
 })
 
-const Product = ProductModel( db, Sequelize)
+const Product = ProductModel( db, Sequelize);
+
+User.hasMany(Product);
+Product.belongsTo(User);
 // User.hasMany(Product)
 // Product.hasMany(Cart)
 // Cart.hasMany(Product)

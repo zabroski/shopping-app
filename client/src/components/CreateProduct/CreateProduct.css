@@ -1,0 +1,20 @@
+.products input{
+    /* font-size: 20px; */
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 7px;
+    padding: 5px;
+    display: block;
+    margin-left: 40%;
+    outline: none;
+  }
+
+  .products label {
+    margin-left: 40%;
+    /* font-size: 15px; */
+  }
+  form {
+    margin-top: 5%;
+  }
+
+
