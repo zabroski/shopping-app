@@ -40,10 +40,15 @@ appRouter.post('/:userId/product', async (req, res) => {
   })
 
   appRouter.put('/product/user/:user_id/update/:product_id', async (req, res) => {
-    let product = await Product.findByPk(req.params.product_id)
-
-    await product.update(req.body)
-    res.send(product)
+   
+    let productChange = await Product.update(
+      req.body,
+        {
+          where: {id: req.params.product_id
+        }
+      });
+  
+    res.send(productChange);
   })
   
 

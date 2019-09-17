@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { getProducts } from '../../services/apiService'
 import './ProductList.css';
-
+import { Card, Button } from 'react-bootstrap';
 
 
 class ProductList extends React.Component {
@@ -24,21 +24,53 @@ class ProductList extends React.Component {
         this.setState({ products: products })
     }
 
+    handleAddToCart(productId){
+        let products = JSON.parse(localStorage.getItem("products")) || {};
+
+        if(products[productId]){
+            products[productId]['qt'] +=  1;
+        }else{
+            products[productId] = {
+                product: this.getProductById(productId),
+                qt: 1
+            };
+        }
+        
+        localStorage.setItem("products", JSON.stringify(products));
+    }
+
+    getProductById(productId){
+        for(let k in this.state.products){
+            let product = this.state.products[k];
+            if(product.id == productId){
+                return product;
+            }
+        }
+    }
+
 
     renderProduct = () => {
             return this.state.products.map(product => {
                 return (
-                    <div className="product-item" key={product.id}>
-                        <Link to={{
+                  
+                        <Card style={{ width: '15rem', float: "left", margin:"5px", color: "black" }} key={product.id}>
+                              <Link to={{
                             pathname: `/dashboard/product/${product.id}`,
                             state: { products: product.products }
                         }}>
-                            <h2>{product.name}</h2> 
-                            <p>{product.description}</p>
-                            <span>{product.price}</span>
-                            <div>{product.image}</div>
+                            <Card.Img variant="top" src={product.image} />
                         </Link>
-                    </div>
+                            
+                            <Card.Body>
+                                <Card.Title>{product.name}</Card.Title>
+                                <Card.Text>
+                                    {product.description}
+                                </Card.Text>
+                                <Button variant="primary" onClick={() => {
+                                    this.handleAddToCart(product.id);
+                                }}>Add To Cart ({product.price}zc)</Button>
+                            </Card.Body>
+                        </Card>
                 )
             })
     }

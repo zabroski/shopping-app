@@ -1,4 +1,4 @@
-.peoples-list {
+/* .peoples-list {
     display: flex;
     justify-content: center;
     align-items: column;
@@ -6,7 +6,7 @@
     border:none;
     padding-left: 0px;
     margin-top: 80px; 
-}
+} */
 
 .peoples-list > ol {
     padding-left: 0px;
@@ -24,31 +24,27 @@
         display:inline-block;
         cursor:pointer;
         color:#ffffff;
-        font-family:Arial;
-        /* font-size:17px; */
+        /* font-family:Arial; 
+         font-size:17px; */
         padding:16px 31px;
-        margin: 20px;
-        text-decoration:none;
-        
+        margin: 100px;
+        text-decoration:none; 
     }
- .button-div {
+
+ /* .button-div {
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
- }
+ } */
 
- .product-item h2{
+ /* .product-item h2{
      color: black;
      text-align: center;
      margin: 0;
- }
-.product-item p {
+ } */
+/* .product-item p {
     color: #f0f8ff;
     text-align: center;
     margin: 0;
-}
-/* .product-item span{
-    color: #f0f8ff;
-  
 } */

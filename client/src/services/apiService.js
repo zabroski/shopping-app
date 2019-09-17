@@ -101,9 +101,20 @@ export const updateProduct = async (productId, data ) => {
 }
 
 
-export const deleteProduct = async (productId, data ) => {
+export const getProduct = async (productId ) => {
     try {
-        const response = await apiClient.delete(`/app/product/user/${productId}/delete`, data)
+        const response = await apiClient.get(`/app/product/${productId}`)
+        return response
+    } catch (e) {
+        throw e
+    }
+}
+
+
+export const deleteProduct = async (productId) => {
+    try {
+        const response = await apiClient.delete(`/app/product/${productId}/delete`)
+        return response
 
     } catch (e){
         throw e

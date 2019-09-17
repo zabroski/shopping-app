@@ -1,4 +1,29 @@
-.checkoutNav h1 {
-    text-align: center;
-    color: aqua;
+.unitQuaTotal {
+    /* display: flex; */
+    width: 100;
+    /* height: 300px; */
+    margin-top: 100px;
+    justify-content: space-between;
+    margin-right: 50px;
+    background-color: white;
+  
+}
+
+.order a {
+    color: white;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+.order {
+  margin-left: 20px;
+font-size: 40px;
+
+   
+}
+
+h2 {
+    font-size: 15px;
+    color: black;
 }
