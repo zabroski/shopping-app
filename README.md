@@ -19,6 +19,6 @@ User will be able to post items for sale by name, type, price, description, and 
 # POST MVP
 
 User will be able to checkout and see their total price and make a payment.
-##![](https://imgur.com/iC9mXCj.png)
+##![](https://imgur.com/wZbqELK.png)
 
 
