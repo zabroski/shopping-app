@@ -1,6 +1,6 @@
 
 # shopping-app
-http://zshopping-times.surge.sh/
+http://zshopping-app.surge.sh/
 App description: This app is a full-stack app.  The user will be able to create products to sell if they have items for sale.  Also, the user can purchase items from other users.  The app is exciting because many users can add items so the products can change often.
 
 # Technologies and packages
