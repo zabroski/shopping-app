@@ -39,6 +39,23 @@ class ProductList extends React.Component {
         localStorage.setItem("products", JSON.stringify(products));
     }
 
+    textTruncate(str, length, ending) {
+        if (length == null) {
+            length = 100;
+        }
+
+        if (ending == null) {
+            ending = '...';
+        }
+        if (str.length > length) {
+            return str.substring(0, length - ending.length) + ending;
+        } else {
+            return str;
+        }
+    };
+
+    
+
     getProductById(productId){
         for(let k in this.state.products){
             let product = this.state.products[k];
@@ -54,17 +71,17 @@ class ProductList extends React.Component {
                 return (
                   
                         <Card style={{ width: '15rem', float: "left", margin:"5px", color: "black" }} key={product.id}>
-                              <Link to={{
-                            pathname: `/dashboard/product/${product.id}`,
-                            state: { products: product.products }
-                        }}>
-                            <Card.Img variant="top" src={product.image} />
-                        </Link>
+                            {/* <Link to={{
+                                pathname: `/dashboard/product/${product.id}`,
+                                state: { products: product.products }
+                            }}> */}
+                                <Card.Img variant="top" src={product.image} />
+                            {/* </Link> */}
                             
                             <Card.Body>
                                 <Card.Title>{product.name}</Card.Title>
                                 <Card.Text>
-                                    {product.description}
+                                    {this.textTruncate(product.description, 50, "...")}
                                 </Card.Text>
                                 <Button variant="primary" onClick={() => {
                                     this.handleAddToCart(product.id);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMyStoreProducts, deleteProduct }  from '../../services/apiService';
+import { getMyStoreProducts, deleteProduct, getProducts }  from '../../services/apiService';
 import './MyStore.css';
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
 
@@ -18,7 +18,8 @@ class MyStore extends React.Component {
     }
 
     getMyStoreProducts = async() => {
-        const myStoreProducts = await getMyStoreProducts()
+        const myStoreProducts = await getMyStoreProducts();
+        //const myStoreProducts = await getProducts();
         this.setState({ myStoreProducts:myStoreProducts })
     }
 
@@ -34,7 +35,7 @@ class MyStore extends React.Component {
                 {this.state.myStoreProducts.map((product, id) =>{
                     return(
 
-                        <Card style={{ width: '15rem', float: "left", margin:"5"}} key={product.id} className="card">
+                        <Card  key={product.id} className="card">
                         <Card.Img variant="top" src={product.image} />
                         <Card.Body>
                             <Card.Title>{product.name}</Card.Title>

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Zetta&display=swap');
 .App {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  text-align: center;
   width: 1028px;
   margin: 0 auto;
   color: white;
@@ -101,6 +105,7 @@ nav button:hover {
   margin: 5px;
   text-align: center;
   color: black;
+  min-height: 368px;
 }
 
 p.card-text{
